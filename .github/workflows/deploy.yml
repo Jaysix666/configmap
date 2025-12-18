@@ -53,14 +53,22 @@ jobs:
           echo "USER_PASSWORD = ${{ env.USER_PASSWORD }}"
           echo "USER_PASSWORD = ${{ secrets.USER_PASSWORD }}"
       
+  My-Deploy-Job2:
+    name: 배포서버
+    runs-on: self-hosted
+
+    steps:
+    - name: 배포 작업 1단계 파일 생성
+      run: echo "Hello World" > output.txt
+
 
       # 참고: https://docs.github.com/en/actions/learn-github-actions/variables
-      - name: Github Actions 자체에 저장되어 있는 변수 사용해보기
-        run: |
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
+    #  - name: Github Actions 자체에 저장되어 있는 변수 사용해보기
+    #    run: |
+    #      echo $GITHUB_SHA
+    #      echo $GITHUB_REPOSITORY
 
-      - name: Github Actions Secret 변수 사용해보기
-        run: |
-          echo ${{ secrets.MY_NAME }}
-          echo ${{ secrets.MY_HOBBY }}
+    #  - name: Github Actions Secret 변수 사용해보기
+    #    run: |
+    #      echo ${{ secrets.MY_NAME }}
+    #      echo ${{ secrets.MY_HOBBY }}
