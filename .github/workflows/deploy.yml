@@ -33,6 +33,9 @@ jobs:
       - name: 작업 폴더 목록 확인
         run: ls -la
 
+      - name: 환경변수 모두 출력
+        run: env
+
       
 
       # 참고: https://docs.github.com/en/actions/learn-github-actions/variables
