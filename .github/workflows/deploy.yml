@@ -46,7 +46,7 @@ jobs:
         run: echo ${{ env.NAME }}
        
       - name: 환경변수 USERNAME 출력
-        run: echo "USERNAME = ${{ env.USERNAME }}""
+        run: echo "USERNAME = ${{ env.USERNAME }}"
 
       - name: 환경변수 USER_PASSWORD 출력
         run: |
