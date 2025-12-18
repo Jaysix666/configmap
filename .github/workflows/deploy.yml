@@ -19,7 +19,7 @@ env:
 # 여러 Job은 기본적으로 병렬적으로 수행된다.
 jobs:
   # Job을 식별하기 위한 id
-  My-Deploy-Job:
+  My-Build-Job:
     # Github Actions를 실행시킬 서버 종류 선택
     runs-on: ubuntu-latest
 
@@ -53,7 +53,8 @@ jobs:
           echo "USER_PASSWORD = ${{ env.USER_PASSWORD }}"
           echo "USER_PASSWORD = ${{ secrets.USER_PASSWORD }}"
       
-  My-Deploy-Job2:
+  My-Deploy-Job:
+    needs: My-Build-Job
     name: 배포서버
     runs-on: self-hosted
 
