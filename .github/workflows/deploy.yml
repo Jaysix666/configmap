@@ -9,6 +9,12 @@ on:
     branches:
       - main
 
+env:
+  NAME: kosa
+  USERNAME: kosa
+  USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+
+
 # 하나의 Workflow는 1개 이상의 Job으로 구성된다.
 # 여러 Job은 기본적으로 병렬적으로 수행된다.
 jobs:
@@ -36,6 +42,16 @@ jobs:
       - name: 환경변수 모두 출력
         run: env
 
+      - name: 환경변수 NAME 출력
+        run: echo ${{ env.NAME }}
+       
+      - name: 환경변수 USERNAME 출력
+        run: echo "USERNAME = ${{ env.USERNAME }}""
+
+      - name: 환경변수 USER_PASSWORD 출력
+        run: |
+          echo "USER_PASSWORD = ${{ env.USER_PASSWORD }}"
+          echo "USER_PASSWORD = ${{ secrets.USER_PASSWORD }}"
       
 
       # 참고: https://docs.github.com/en/actions/learn-github-actions/variables
